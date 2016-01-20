@@ -1,0 +1,16 @@
+{
+  "name": "static",
+  "homepage": "https://github.com/ram546/ToDo-List",
+  "authors": [
+    "Mohit Patil <mohitpatil546@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "vue": "~1.0.15",
+    "bootstrap": "~3.3.6"
+  }
+}
