@@ -11,6 +11,7 @@
   "private": true,
   "dependencies": {
     "vue": "~1.0.15",
-    "bootstrap": "~3.3.6"
+    "bootstrap": "~3.3.6",
+    "font-awesome": "~4.5.0"
   }
 }
