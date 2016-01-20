@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>To Do list</title>
+        <link rel="stylesheet" href="../static/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+		<div class="container">
+	    	<div id="todoList">
+
+				<h1>Tasks</h1>
+
+				<ol class="list-group">
+					<li class="list-group-item" v-for="task in tasks">
+						{{task.body}}
+					</li>
+				</ol>
+
+				<form  v-on:submit="addTask">
+
+					<div class="form-group">
+						<input class="form-control" type="text" placeholder="I need ..." v-model="newTask">
+					</div>
+					<button class="btn btn-info">Add Task</button>
+
+				</form>
+
+
+	    	</div>
+	    </div>
+
+        <script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../static/bower_components/vue/dist/vue.min.js"></script>
+        <script src="../static/todoList.js"></script>
+    </body>
+</html>
