@@ -9,11 +9,19 @@
         <link rel="stylesheet" href="../static/bower_components/font-awesome/css/font-awesome.min.css">
     </head>
     <body>
-		<div class="container">
+		<div class="container" style="margin-top: 30px;">
+			<div class="row">
+				<div class="col-sm-6">
+					<h1>ToDo List</h2>
+				</div>
+			</div>
+			<div class="row" style="margin-top: 30px;">
+				<div class="col-sm-6">
+
 	    	<div id="todoList">
 
 				<div v-if="remaining.length">
-					<h1>Tasks ({{ remaining.length }})</h1>
+					<h2>Tasks ({{ remaining.length }})</h2>
 
 					<ol class="list-group">
 						<li class="list-group-item clearfix" v-for="task in tasks | inProcess">
@@ -38,7 +46,7 @@
 
 
 				<div v-if="completions.length">
-					<h1>Completed ({{completions.length}})</h1>
+					<h2>Completed ({{completions.length}})</h2>
 
 					<ol class="list-group">
 						<li class="list-group-item clearfix" v-for="task in tasks | completed">
@@ -52,6 +60,8 @@
 
 	    	</div>
 	    </div>
+	</div>
+</div>
 
         <script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
         <script src="../static/bower_components/vue/dist/vue.min.js"></script>
