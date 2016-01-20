@@ -6,29 +6,49 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>To Do list</title>
         <link rel="stylesheet" href="../static/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/bower_components/font-awesome/css/font-awesome.min.css">
     </head>
     <body>
 		<div class="container">
 	    	<div id="todoList">
 
-				<h1>Tasks</h1>
+				<div v-if="remaining.length">
+					<h1>Tasks ({{ remaining.length }})</h1>
 
-				<ol class="list-group">
-					<li class="list-group-item" v-for="task in tasks">
-						{{task.body}}
-						<i class="fa fa-times"></i>
-					</li>
-				</ol>
+					<ol class="list-group">
+						<li class="list-group-item clearfix" v-for="task in tasks | inProcess">
+							<span v-on:dblclick="editTask(task)">{{task.body}}</span>
+							<div class="pull-right">
+								<i class="fa fa-check" style="margin-right: 10px; color: green;" v-on:click="toggleTask(task)"></i>
+								<i class="fa fa-times" style="color: red;" v-on:click="removeTask(task)"></i>
+							</div>
+						</li>
+					</ol>
+				</div>
 
 				<form  v-on:submit="addTask">
 
 					<div class="form-group">
-						<input class="form-control" type="text" placeholder="I need ..." v-model="newTask">
+						<input class="form-control" type="text" placeholder="I need ..." v-model="newTask" id="newTaskInput">
 					</div>
 					<button class="btn btn-info">Add Task</button>
+					<button class="btn btn-default" @click="completeAll">Mark All as Completed</button>
 
 				</form>
 
+
+				<div v-if="completions.length">
+					<h1>Completed ({{completions.length}})</h1>
+
+					<ol class="list-group">
+						<li class="list-group-item clearfix" v-for="task in tasks | completed">
+							{{task.body}}
+							<i class="fa fa-times pull-right" style="color: red;" v-on:click="toggleTask(task)"></i>
+						</li>
+					</ol>
+
+					<button class="btn btn-danger" @click="clearCompleted">Mark All as Completed</button>
+				</div>
 
 	    	</div>
 	    </div>
