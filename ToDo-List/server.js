@@ -32,8 +32,12 @@ app.use(express.static(__dirname + '/public'));
 // 	res.sendFile(__dirname + '/public/under_construction/underConstruction.html');
 // })
 
-app.get('*',function(req,res){
+app.get('/home',function(req,res){
 	res.sendFile(__dirname + '/public/html_template/todoList.html');
+})
+
+app.get('*',function(req,res){
+	res.sendFile(__dirname + '/public/html_template/login/login.html');
 });
 
 app.listen(config.port, function(err){
