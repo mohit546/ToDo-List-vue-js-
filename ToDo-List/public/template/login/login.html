@@ -21,7 +21,7 @@
 			.formWindow {
 				border: 1px solid #fff;
 				border-radius: 10px;
-				padding: 20px;
+				padding: 5px 20px 20px 20px;
 				background: #fff;
 			}
 
@@ -35,19 +35,58 @@
 		</style>
 	</head>
 
-	<body class="cover">
+	<body class="cover"  id="login">
 
-		<div id="login" class="container" style="margin-top: 100px;">
+		<nav class="navbar navbar-inverse" role="navigation">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">ToDo</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
+					<!-- <li class="active"><a href="#">Link</a></li> -->
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a class="hand" @click="toggle('login')">Login</a></li>
+					<li><a class="hand" @click="toggle('signup')">SignUp</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</nav>
+
+		<div class="container" style="margin-top: 100px;">
 			<div class="row">
 				<div class="col-sm-4"></div>
 				<div class="col-sm-4"></div>
 				<div class="col-sm-4">
 
-					<form @submit.prevent="login" class="formWindow">
+					<form @submit.prevent="login" class="formWindow" v-show="state == 'login'">
+						<h3 style="margin-top: 5px; margin-bottom: -5px;">Login</h3>
+						<hr>
 						<input class="form-control breathingRoom" type="text" v-model="userEmail" placeholder="User Email">
 						<input class="form-control breathingRoom" type="password" v-model="password" placeholder="Password">
 						<button class="form-control breathingRoom btn btn-primary" type="submit">Login</button>
-						<div style="margin-top: 15px;"><a style="text-decoration: none; cursor: pointer;">Forget Password</a><a style="text-decoration: none; cursor: pointer;" class="pull-right">New User</a></div>
+
+						<div style="margin-top: 15px;">
+							<a style="text-decoration: none; cursor: pointer;">Forget Password</a>
+							<a style="text-decoration: none; cursor: pointer;" class="pull-right" @click="toggle('signup')">New User</a>
+						</div>
+					</form>
+
+					<form @submit.prevent="signUp" class="formWindow" v-show="state == 'signup'">
+						<h3 style="margin-top: 5px; margin-bottom: -5px;">Sign Up</h3>
+						<hr>
+						<input class="form-control breathingRoom" type="text" v-model="userEmail" placeholder="User Email">
+						<input class="form-control breathingRoom" type="password" v-model="password" placeholder="Password">
+						<button class="form-control breathingRoom btn btn-primary" type="submit">Login</button>
 					</form>
 
 				</div>

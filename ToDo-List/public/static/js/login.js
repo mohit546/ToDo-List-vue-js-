@@ -3,7 +3,8 @@ new Vue({
 
 	data: {
 		userEmail: '',
-		password: ''
+		password: '',
+		state: 'login'
 	},
 
 	methods: {
@@ -18,6 +19,10 @@ new Vue({
 			}, function (response) {
 				console.log(response.data);
 			});
+		},
+
+		toggle: function(state){
+			this.state = state;
 		}
 	}
 });
