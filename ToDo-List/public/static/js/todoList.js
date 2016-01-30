@@ -85,6 +85,11 @@ new Vue({
 			this.tasks = this.tasks.filter(function(task){
 				return ! task.completed;
 			});
+		},
+
+		logOut: function(){
+			console.log('remove token');
+			localStorage.removeItem('token');
 		}
 	}
 });
