@@ -56,9 +56,15 @@
 					<p style="font-size: 0.8em; text-align: right;">Note: For edit Double click on entry</p>
 					<ol class="list-group">
 						<li class="list-group-item clearfix" v-for="task in tasks | inProcess" style="width: 100%;">
-							<span class="hand" v-on:dblclick="editTask(task, $index)" style="">{{task.body}}</span>
-							<div class="pull-right" style="">
-								<i class="fa fa-check hand" style="margin-right: 10px; margin-left: 10px; color: green;" v-on:click="toggleTask(task)"></i>
+							<div class="col-sm-10" style="padding: 0px;">
+								<span class="hand" v-on:dblclick="editTask(task, $index)" style="">
+									{{task.body}}
+								</span>
+							</div>
+							<div class="col-sm-1">
+								<i class="fa fa-check hand" style="margin-right: 10px; color: green;" v-on:click="toggleTask(task)"></i>
+							</div>
+							<div class="col-sm-1">
 								<i class="fa fa-times hand" style="color: red;" v-on:click="removeTask(task)"></i>
 							</div>
 						</li>
@@ -84,8 +90,10 @@
 
 					<ol class="list-group">
 						<li class="list-group-item clearfix" v-for="task in tasks | completed">
-							{{task.body}}
-							<div class="pull-right">
+							<div class="col-sm-11" style="padding: 0px;">
+								{{task.body}}
+							</div>
+							<div class="col-sm-1">
 								<i class="fa fa-times hand" style="color: red;" v-on:click="toggleTask(task)"></i>
 							</div>
 						</li>
