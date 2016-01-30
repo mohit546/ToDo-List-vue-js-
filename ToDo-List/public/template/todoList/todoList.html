@@ -17,6 +17,7 @@
     </head>
     <body>
 
+	<div id="todoList">
 		<nav class="navbar navbar-inverse" role="navigation">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -34,7 +35,7 @@
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
-					<li v-on:click="logOut"><a href="#">Logout</a></li>
+					<li @click="logOut"><a href="#">Logout</a></li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</nav>
@@ -49,7 +50,6 @@
 			<div class="row" style="margin-top: 30px;">
 				<div class="col-sm-6">
 
-	    	<div id="todoList">
 
 				<div v-if="remaining.length">
 					<h2>Tasks ({{ remaining.length }})</h2>

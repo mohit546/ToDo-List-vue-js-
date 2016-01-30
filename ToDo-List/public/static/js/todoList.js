@@ -88,7 +88,6 @@ new Vue({
 		},
 
 		logOut: function(){
-			console.log('remove token');
 			localStorage.removeItem('token');
 		}
 	}
