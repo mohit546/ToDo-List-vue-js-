@@ -33,11 +33,11 @@ app.use(express.static(__dirname + '/public'));
 // })
 
 app.get('/home',function(req,res){
-	res.sendFile(__dirname + '/public/html_template/todoList.html');
+	res.sendFile(__dirname + '/public/template/todoList/todoList.html');
 })
 
 app.get('*',function(req,res){
-	res.sendFile(__dirname + '/public/html_template/login/login.html');
+	res.sendFile(__dirname + '/public/template/login/login.html');
 });
 
 app.listen(config.port, function(err){
