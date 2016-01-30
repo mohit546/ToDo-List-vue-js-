@@ -37,7 +37,10 @@ module.exports = function(app, express){
 				return;
 			}
 
-			res.json({message:'User has been created!'});
+			res.json({
+				status : true,
+				message:'User has been created!'
+			});
 		});
 	});
 
